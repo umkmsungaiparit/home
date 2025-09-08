@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UMKM Sungai Parit</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff8f0; color: #333; }
+
+    header {
+      background: linear-gradient(to right, #ff9800, #ff5722);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h1 { font-size: 2em; margin-bottom: 8px; }
+    header p { font-size: 1em; }
+
+    nav {
+      background: #e65100;
+      padding: 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9em;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #ffcc80; }
+
+    section { padding: 30px 20px; text-align: center; }
+    h2 { color: #e65100; margin-bottom: 15px; font-size: 1.5em; }
+
+    .produk-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+    .produk {
+      border-radius: 12px;
+      padding: 12px;
+      background: white;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .produk img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    .produk h3 { font-size: 1em; margin-bottom: 5px; }
+    .produk p { font-size: 0.9em; margin-bottom: 5px; }
+    .owner {
+      font-size: 0.85em;
+      color: #555;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .produk button {
+      padding: 6px 15px;
+      background: #ff5722;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 0.9em;
+      cursor: pointer;
+    }
+    .produk button:hover { background: #e64a19; }
+
+    /* Popup detail produk */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 200;
+    }
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 350px;
+      width: 90%;
+      text-align: left;
+      position: relative;
+    }
+    .popup-content img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .popup-content h3 { margin-bottom: 10px; color: #e65100; }
+    .popup-content p { margin: 6px 0; font-size: 0.9em; }
+    .popup-content a {
+      display: inline-block;
+      margin-top: 12px;
+      background: #25D366;
+      padding: 8px 16px;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .close-btn {
+      position: absolute;
+      top: 8px; right: 12px;
+      font-size: 18px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+    }
+
+    .sosial-links {
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .sosial-links a {
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:25px;
+      text-decoration:none;
+      font-weight:bold;
+      font-size:0.9em;
+      color:white;
+    }
+    .facebook { background:#1877F2; }
+    .instagram { background:#E1306C; }
+    .whatsapp { background:#25D366; }
+    .email { background:#D44638; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>UMKM Sungai Parit</h1>
+    <p>📍 Desa Perkebunan Sungai Parit – Camilan renyah khas Riau, teman setia saat santai!</p>
+  </header>
+
+  <nav>
+    <a href="#tentang">Tentang</a>
+    <a href="#produk">Produk</a>
+    <a href="#kontak">Kontak & Sosial</a>
+  </nav>
+
+  <section id="tentang">
+    <h2>Tentang Kami</h2>
+    <p>Kami adalah UMKM lokal di Sungai Parit yang menghadirkan aneka camilan khas seperti <b>Keripik Sambal Singkong</b>, <b>Ganepo</b>, dan <b>Stik Royco</b>. 
+    Setiap produk dibuat dengan bahan pilihan, tanpa pengawet, dan penuh cita rasa. 
+    Produk ini dikelola langsung oleh para pelaku usaha rumahan dengan nama berbeda, sehingga memberi warna unik pada setiap rasa yang kami hadirkan.</p>
+  </section>
+
+  <section id="produk">
+    <h2>Produk Kami</h2>
+    <div class="produk-container">
+      <div class="produk">
+        <img src="keripik sambal.jpg" alt="Keripik Sambal Singkong">
+        <h3>Keripik Sambal Singkong</h3>
+        <p>Rp 50.000/kg</p>
+        <div class="owner">👤 Dimas & Dinda</div>
+        <button onclick="showDetail('Keripik Sambal Singkong', 'Rp 50.000/kg', 'Pedas nikmat khas rumahan.', 'Dimas & Dinda', 'Perkebunan Sungai Parit, Sungai Lala', 'keripik sambal.jpg', '6282213117961')">Lihat Detail</button>
+      </div>
+      <div class="produk">
+        <img src="ganepo.jpg" alt="Ganepo">
+        <h3>Ganepo / Cincang Ubi</h3>
+        <p>Rp 40.000/kg</p>
+        <div class="owner">👤 Dimas & Dinda</div>
+        <button onclick="showDetail('Ganepo / Cincang Ubi', 'Rp 40.000/kg', 'Renyah, gurih, cocok untuk teman ngopi.', 'Dimas & Dinda', 'Perkebunan Sungai Parit, Sungai Lala', 'ganepo.jpg', '6282213117961')">Lihat Detail</button>
+      </div>
+      <div class="produk">
+        <img src="stik royco.jpg" alt="Stik Royco">
+        <h3>Stik Royco</h3>
+        <p>Rp 80.000/kg</p>
+        <div class="owner">👤 Dimas & Dinda</div>
+        <button onclick="showDetail('Stik Royco', 'Rp 80.000/kg', 'Stik gurih dengan taburan bumbu royco.', 'Dimas & Dinda', 'Perkebunan Sungai Parit, Sungai Lala', 'stik royco.jpg', '6282213117961')">Lihat Detail</button>
+      </div>
+      <div class="produk">
+        <img src="keripik original.jpg" alt="Keripik Singkong Original">
+        <h3>Keripik Singkong Original</h3>
+        <p>Rp 40.000/kg</p>
+        <div class="owner">👤 Dimas & Dinda</div>
+        <button onclick="showDetail('Keripik Singkong Original', 'Rp 40.000/kg', 'Keripik gurih, renyah, dan favorit sejak dulu.', 'Dimas & Dinda', 'Perkebunan Sungai Parit, Sungai Lala', 'keripik original.jpg', '6282213117961')">Lihat Detail</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popup detail produk -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <img id="popup-img" src="" alt="Produk">
+      <h3 id="popup-title"></h3>
+      <p><b>Harga:</b> <span id="popup-harga"></span></p>
+      <p><b>Deskripsi:</b> <span id="popup-desc"></span></p>
+      <p><b>Nama Pemilik:</b> <span id="popup-owner"></span></p>
+      <p><b>Alamat:</b> <span id="popup-alamat"></span></p>
+<p style="margin-top:10px; font-style:italic; color:#555;">
+      🏷️ Berdiri sejak 2018
+    </p>
+      <a id="popup-wa" href="#" target="_blank">💬 Chat Pemilik via WhatsApp</a>
+    </div>
+  </div>
+
+  <section id="kontak" style="background:#fff4ee;">
+    <h2>Kontak & Sosial Media</h2>
+    <p>📍 <a href="https://maps.app.goo.gl/vaPzK2ZNaAbYv6ib6?g_st=aw" target="_blank">Perkebunan Sungai Parit, Sungai Lala, Indragiri Hulu</a></p>
+    <p>✉️ <a href="mailto:umkmsungaiparit@gmail.com">umkmsungaiparit@gmail.com</a></p>
+    <div class="sosial-links">
+      <a href="https://facebook.com/umkmsungaiparit" target="_blank" class="facebook">👍 Facebook</a>
+      <a href="https://instagram.com/umkmsungaiparit" target="_blank" class="instagram">📷 Instagram</a>
+      <a href="https://wa.me/6282213117961" target="_blank" class="whatsapp">📱 WhatsApp</a>
+      <a href="mailto:umkmsungaiparit@gmail.com" class="email">✉️ Email</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 KKN UNRIDA Desa Perkebunan Sungai Parit | Semua Hak Dilindungi</p>
+  </footer>
+
+  <script>
+    function showDetail(nama, harga, deskripsi, pemilik, alamat, imgUrl, wa) {
+      document.getElementById('popup-title').innerText = nama;
+      document.getElementById('popup-harga').innerText = harga;
+      document.getElementById('popup-desc').innerText = deskripsi;
+      document.getElementById('popup-owner').innerText = pemilik;
+      document.getElementById('popup-alamat').innerText = alamat;
+      document.getElementById('popup-img').src = imgUrl;
+      document.getElementById('popup-wa').href = "https://wa.me/" + wa + "?text=Halo%20saya%20mau%20pesan%20" + encodeURIComponent(nama);
+      document.getElementById('popup').style.display = 'flex';
+    }
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
